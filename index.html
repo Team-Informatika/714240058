@@ -3,6 +3,10 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Syalwa Aliya</title>
+    <!-- //link js module -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/element.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/api.js">
+    <!-- //link js module -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -63,7 +67,7 @@
           alt="Profile picture of a landscape with hills and a cloud"
           class="rounded-full border-2 border-black"
           height="100"
-          src="image.png"
+          src="foto.png"
           width="100"
         />
       </div>
@@ -83,24 +87,25 @@
       <div class="text-center mt-4">
         <h2 class="text-lg font-bold text-[#0A1F2A]">KEAHLIAN</h2>
       </div>
-      <div class="flex flex-wrap gap-1 items-center justify-center">
+
+      <main>
+        <section class="content" id="content">
+            <!-- isi content disini -->
+        </section>
+      </main>
+
+      <div id="KEAHLIAN" class="flex flex-wrap gap-1 items-center justify-center">
         <span class="bg-gray-700 text-white py-0.5 px-2 rounded-full text-xs"
           >Mengajar Matematika Dasar</span
         >
-        <span class="bg-gray-700 text-white py-0.5 px-2 rounded-full text-xs"
+        <span id="ahli" class="bg-gray-700 text-white py-0.5 px-2 rounded-full text-xs"
           >Konsultasi Akuntansi</span
         >
-        <span class="bg-gray-700 text-white py-0.5 px-2 rounded-full text-xs"
+        <span id="ahli" class="bg-gray-700 text-white py-0.5 px-2 rounded-full text-xs"
           >Mengajar Fundamental Python</span
         >
-        <span class="bg-gray-700 text-white py-0.5 px-2 rounded-full text-xs"
-          >Membuat Kartu Persediaan</span
-        >
-        <span class="bg-gray-700 text-white py-0.5 px-2 rounded-full text-xs"
-          >Membantu Mengerjakan Tugas</span
-        >
-        <span class="bg-gray-700 text-white py-0.5 px-2 rounded-full text-xs"
-          ><a href="https://pitipaw.id.biz.id/">Crafting</a></span
+        <span id="ahli" class="bg-gray-700 text-white py-0.5 px-2 rounded-full text-xs"
+          >Crafting</span
         >
       </div>
 
@@ -116,7 +121,7 @@
         >
       </div>
       <div class="text-center mt-2">
-        <p class="text-sm text-[#0A1F2A] mt-2">
+        <p id="paragraf" class="text-sm text-[#0A1F2A] mt-2">
           Harga menyesuaikan, silakan hubungi saya untuk tanya lebih lanjut
           dengan cara klik tombol di bawah ini, terimakasih! (●'◡'●)
         </p>
@@ -145,5 +150,7 @@
         </a>
       </div>
     </div>
+
+    <script type="module" src="index.js"></script>
   </body>
 </html>
