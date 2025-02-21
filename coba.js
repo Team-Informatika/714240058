@@ -1,33 +1,32 @@
-import {getJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/api.js";
-import {setInner} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/element.js";
+import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/api.js"
+import { renderHTML, setInner } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/element.js"
+import { getHash, onHashChange } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/url.js"
 
-// Fungsi untuk merender data kartu
-function renderDataKartu() {
-    // Menggunakan setInner untuk menampilkan pesan "Memuat..."
-    setInner('#kartu-content', 'Memuat...');
+onHashChange(muncul);
 
-    // Mengambil data JSON dan memprosesnya
-    getJSON("https://t.if.co.id/json/syalwa.json", null, null, responseFunction)
-        .catch(error => {
-            console.error('Error:', error);
-            setInner('#kartu-content', 'Gagal memuat data.');
-        });
+renderHTML('kartu-content', 'page2.html')
+
+function muncul() {
+  console.log(getHash());
+  const hashpath = getHash();
+  if (hashpath === 'content') {
+    console.log("keluar ga?");
+    renderHTML('kartu-content', "page2.html", renderDataKartu);
+  }
 }
-function responseFunction(response) {
-    console.log('HTTP Status: ', response.status);
-    console.log('Response Data: ', response.data);
+function renderDataKartu() {
+  getJSON("https://t.if.co.id/json/syalwa.json", null, null, responseFunction);
+}
+// renderHTML('kartu-content', 'content.html')
 
-    if (response.status === 200) {
-        const data = response.data;
-            
-        const kartuContent = `
-            <p>Miner: ${data.miner}</p>
-            <p>Hashrate: ${data.totalHash} H/s</p>`;
-                
-                
-        //menampilkan ke dalam elemen dengan id kartu-content
-        setInner("kartu-content", kartuContent);
-    } else {
-        setInner("kartu-content", `<p>Error: Unable to fetch data.</p>;`);
-    }
+function responseFunction(response) {
+  // renderHTML('kartu-content', 'content.html');
+  console.log('HTTP Status:', response.status);
+  console.log('Response Data:', response.data);
+  setInner('nama :', response.data.nama);
+  setInner('status :', response.data.status);
+  setInner('contact :', response.data.contact);
+  
+  const contact = response.data.contact;
+  setInner('contact',`${contact}`);
 }
