@@ -120,6 +120,25 @@ const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
+// form validation
+document.querySelector('.form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Mencegah pengiriman form secara default
+
+    // Mengambil nilai dari form
+    const fullName = document.querySelector('input[name="fullname"]').value;
+    const emailAddress = document.querySelector('input[name="email"]').value;
+    const message = document.querySelector('textarea[name="message"]').value;
+
+    // Membuat URL WhatsApp
+    const phoneNumber = "6283137760847";
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=Nama:%20${encodeURIComponent(fullName)}%0AEmail:%20${encodeURIComponent(emailAddress)}%0APesan:%20${encodeURIComponent(message)}`;
+
+    // Mengarahkan ke WhatsApp
+    window.location.href = whatsappURL;
+});
+
+
+
 // add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
